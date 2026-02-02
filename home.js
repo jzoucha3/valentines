@@ -27,6 +27,9 @@ function updateCountdown() {
     return;
   }
 
+  heartContent.hidden = false;
+  question.hidden = true;
+
   const valentines = getNextValentines();
   const diff = valentines - now;
   const totalSeconds = Math.max(0, Math.floor(diff / 1000));
@@ -53,12 +56,17 @@ function setupNoButton() {
   const noButton = document.getElementById("noButton");
   if (!noButton) return;
 
+  const heart = document.querySelector(".heart");
+  if (!heart) return;
+
   function moveButton() {
-    const padding = 20;
-    const maxX = window.innerWidth - noButton.offsetWidth - padding;
-    const maxY = window.innerHeight - noButton.offsetHeight - padding;
-    const x = Math.max(padding, Math.floor(Math.random() * maxX));
-    const y = Math.max(padding + 72, Math.floor(Math.random() * maxY));
+    const rect = heart.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const radius = Math.min(rect.width, rect.height) / 2 - 6;
+    const angle = Math.random() * Math.PI * 2;
+    const x = cx + Math.cos(angle) * radius - noButton.offsetWidth / 2;
+    const y = cy + Math.sin(angle) * radius - noButton.offsetHeight / 2;
 
     noButton.style.position = "fixed";
     noButton.style.left = `${x}px`;
@@ -67,8 +75,8 @@ function setupNoButton() {
 
   function handleMove(event) {
     const rect = noButton.getBoundingClientRect();
-    const nearX = event.clientX >= rect.left - 120 && event.clientX <= rect.right + 120;
-    const nearY = event.clientY >= rect.top - 120 && event.clientY <= rect.bottom + 120;
+    const nearX = event.clientX >= rect.left - 4 && event.clientX <= rect.right + 4;
+    const nearY = event.clientY >= rect.top - 4 && event.clientY <= rect.bottom + 4;
     if (nearX && nearY) moveButton();
   }
 

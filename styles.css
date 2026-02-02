@@ -201,6 +201,13 @@ main.boxed .media img {
   display: inline-block;
 }
 
+.btn.spotify {
+  background: #1db954;
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
 .btn:hover,
 .btn:focus {
   transform: scale(1.05);
