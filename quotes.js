@@ -13,63 +13,59 @@ const QUOTES = [
   "Koi no yokan."
 ];
 
-let quoteIndex = 0;
-let quoteTimer = null;
+const QUOTE_START_DATE = "2026-02-02"; // One new quote per day; all unlocked by Feb 14.
 
-function renderQuote() {
+function daysBetween(a, b) {
+  const ms = 24 * 60 * 60 * 1000;
+  const aMid = new Date(a.getFullYear(), a.getMonth(), a.getDate());
+  const bMid = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+  return Math.floor((bMid - aMid) / ms);
+}
+
+function getUnlockedCount() {
+  const start = new Date(`${QUOTE_START_DATE}T00:00:00`);
+  const today = new Date();
+  if (today < start) return 0;
+  const days = daysBetween(start, today);
+  return Math.min(QUOTES.length, days + 1);
+}
+
+function formatDate(date) {
+  return date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
+
+function renderQuotes() {
   const quoteText = document.getElementById("quoteText");
-  const dots = document.querySelectorAll("#quoteDots .dot");
-  if (!quoteText) return;
-  quoteText.textContent = QUOTES[quoteIndex];
-  dots.forEach((dot, i) => dot.classList.toggle("active", i === quoteIndex));
-}
+  const status = document.getElementById("quoteStatus");
+  const list = document.getElementById("quoteList");
+  if (!quoteText || !status || !list) return;
 
-function buildDots() {
-  const dotsContainer = document.getElementById("quoteDots");
-  if (!dotsContainer) return;
-  dotsContainer.innerHTML = "";
-  QUOTES.forEach((_, i) => {
-    const dot = document.createElement("div");
-    dot.className = "dot";
-    dot.addEventListener("click", () => {
-      quoteIndex = i;
-      renderQuote();
-      restartTimer();
-    });
-    dotsContainer.appendChild(dot);
-  });
-}
+  const unlockedCount = getUnlockedCount();
+  list.innerHTML = "";
 
-function nextQuote() {
-  quoteIndex = (quoteIndex + 1) % QUOTES.length;
-  renderQuote();
-}
-
-function prevQuote() {
-  quoteIndex = (quoteIndex - 1 + QUOTES.length) % QUOTES.length;
-  renderQuote();
-}
-
-function restartTimer() {
-  if (quoteTimer) clearInterval(quoteTimer);
-  quoteTimer = setInterval(nextQuote, 4000);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  buildDots();
-  renderQuote();
-  restartTimer();
-
-  const prev = document.getElementById("prevQuote");
-  const next = document.getElementById("nextQuote");
-  if (prev) prev.addEventListener("click", () => { prevQuote(); restartTimer(); });
-  if (next) next.addEventListener("click", () => { nextQuote(); restartTimer(); });
-
-  const show = document.getElementById("quoteShow");
-  if (show) {
-    show.addEventListener("mouseenter", () => quoteTimer && clearInterval(quoteTimer));
-    show.addEventListener("mouseleave", restartTimer);
-    show.addEventListener("touchstart", () => quoteTimer && clearInterval(quoteTimer));
-    show.addEventListener("touchend", restartTimer);
+  if (unlockedCount === 0) {
+    const start = new Date(`${QUOTE_START_DATE}T00:00:00`);
+    quoteText.textContent = "A new quote unlocks soon.";
+    status.textContent = `First quote unlocks ${formatDate(start)}`;
+    return;
   }
-});
+
+  const latestIndex = unlockedCount - 1;
+  quoteText.textContent = QUOTES[latestIndex];
+  status.textContent = `${unlockedCount} of ${QUOTES.length} unlocked`;
+
+  for (let i = 0; i < unlockedCount; i++) {
+    const item = document.createElement("div");
+    item.className = "quote-item" + (i === latestIndex ? " active" : "");
+    item.textContent = `Quote ${i + 1}`;
+    item.addEventListener("click", () => {
+      quoteText.textContent = QUOTES[i];
+      document.querySelectorAll(".quote-item").forEach((el, idx) => {
+        el.classList.toggle("active", idx === i);
+      });
+    });
+    list.appendChild(item);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", renderQuotes);
