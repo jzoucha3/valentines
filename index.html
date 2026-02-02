@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valentine's Day</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <script defer src="home.js"></script>
+</head>
+<body class="page-home">
+  <nav class="tabs">
+    <a class="tab active" href="index.html">Home</a>
+    <a class="tab" href="hints.html">Mini Games for Hints</a>
+    <a class="tab" href="quotes.html">Quotes</a>
+    <a class="tab" href="film.html">Caught on Film</a>
+  </nav>
+
+  <main class="home-center">
+    <div class="heart" aria-live="polite">
+      <div class="heart-content" id="heartContent">
+        <div class="countdown-label">Countdown to Valentine's Day</div>
+        <div class="time-blocks" id="countdownBlocks">
+          <div class="time-block">
+            <div class="time-value" id="daysValue">00</div>
+            <div class="time-label">D</div>
+          </div>
+          <div class="time-block">
+            <div class="time-value" id="hoursValue">00</div>
+            <div class="time-label">H</div>
+          </div>
+          <div class="time-block">
+            <div class="time-value" id="minutesValue">00</div>
+            <div class="time-label">M</div>
+          </div>
+          <div class="time-block">
+            <div class="time-value" id="secondsValue">00</div>
+            <div class="time-label">S</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" id="question" hidden>
+        <div class="question-text">Will you be my valentine?</div>
+        <div class="buttons" id="questionButtons">
+          <button class="btn yes" data-yes>yes</button>
+          <button class="btn yes big" data-yes>YES BUT BIGGER</button>
+          <button class="btn no" id="noButton">no</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

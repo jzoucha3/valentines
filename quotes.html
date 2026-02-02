@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quotes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <script defer src="quotes.js"></script>
+</head>
+<body>
+  <nav class="tabs">
+    <a class="tab" href="index.html">Home</a>
+    <a class="tab" href="hints.html">Mini Games for Hints</a>
+    <a class="tab active" href="quotes.html">Quotes</a>
+    <a class="tab" href="film.html">Caught on Film</a>
+  </nav>
+
+  <main class="boxed">
+    <h1>Quotes</h1>
+    <div class="quote-slideshow" id="quoteShow">
+      <div class="quote-card">
+        <div class="quote" id="quoteText">Loading...</div>
+      </div>
+      <div class="quote-nav">
+        <button class="btn" id="prevQuote">Prev</button>
+        <button class="btn" id="nextQuote">Next</button>
+      </div>
+      <div class="dots" id="quoteDots"></div>
+    </div>
+  </main>
+</body>
+</html>

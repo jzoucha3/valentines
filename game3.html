@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game #3 — Space Race</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <script defer src="game3.js"></script>
+</head>
+<body>
+  <nav class="tabs">
+    <a class="tab" href="index.html">Home</a>
+    <a class="tab active" href="hints.html">Mini Games for Hints</a>
+    <a class="tab" href="quotes.html">Quotes</a>
+    <a class="tab" href="film.html">Caught on Film</a>
+  </nav>
+
+  <main class="boxed">
+    <h1>Game #3</h1>
+    <div class="hint-title">Space Race</div>
+    <div class="instructions">Dodge the asteroids and survive to the end.</div>
+
+    <div class="canvas-wrap">
+      <canvas id="spaceCanvas" class="game-canvas" width="600" height="380"></canvas>
+    </div>
+    <div class="message" id="spaceMessage"></div>
+    <div class="hint-reveal" id="spaceHint" hidden>
+      <div>Hint for gift:</div>
+      <div>What were we trying to see the night I asked you to be mine?</div>
+    </div>
+    <button class="btn" id="spaceRetry" hidden>Try again</button>
+
+    <a class="btn" href="hints.html">Back to Mini Games</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game #2 — Word Association</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .word-table {
+      display: grid;
+      gap: 8px;
+      margin: 16px auto;
+      max-width: 680px;
+    }
+    .table-cell {
+      border: 2px solid rgba(255, 221, 85, 0.6);
+      background: rgba(255, 233, 240, 0.85);
+      color: var(--yellow);
+      font-weight: 800;
+      padding: 12px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-transform: lowercase;
+    }
+    .table-cell.selected {
+      outline: 2px solid rgba(255, 221, 85, 0.8);
+      background: rgba(255, 221, 85, 0.25);
+    }
+  </style>
+  <script defer src="script.js"></script>
+  <script defer src="game2.js"></script>
+</head>
+<body>
+  <nav class="tabs">
+    <a class="tab" href="index.html">Home</a>
+    <a class="tab active" href="hints.html">Mini Games for Hints</a>
+    <a class="tab" href="quotes.html">Quotes</a>
+    <a class="tab" href="film.html">Caught on Film</a>
+  </nav>
+
+  <main class="boxed">
+    <h1>Game #2</h1>
+    <div class="hint-title">What you need for good sleep</div>
+    <div class="instructions">Select 4 words that go together.</div>
+
+    <div class="word-table" id="wordTable"></div>
+    <button class="btn" id="checkGroup" hidden>Check</button>
+
+    <div class="message" id="groupMessage"></div>
+    <div class="hint-reveal" id="groupReveal" hidden>
+      <div>Gift Hint:</div>
+      <div>It’s an avocado! Thanks :)</div>
+    </div>
+
+    <a class="btn" href="hints.html">Back to Mini Games</a>
+  </main>
+</body>
+</html>

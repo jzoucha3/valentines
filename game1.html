@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game #1 — Word Search</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <script defer src="game1.js"></script>
+</head>
+<body>
+  <nav class="tabs">
+    <a class="tab" href="index.html">Home</a>
+    <a class="tab active" href="hints.html">Mini Games for Hints</a>
+    <a class="tab" href="quotes.html">Quotes</a>
+    <a class="tab" href="film.html">Caught on Film</a>
+  </nav>
+
+  <main class="boxed">
+    <h1>Game #1</h1>
+    <div class="instructions">Find all the words to identify your first gift</div>
+
+    <div class="word-search">
+      <div class="word-grid" id="wordGrid"></div>
+    </div>
+
+    <div class="message" id="wordMessage"></div>
+    <div class="found-words" id="foundWords" hidden>
+      <div class="hint-title">Found words</div>
+      <div class="found-list" id="foundList"></div>
+    </div>
+
+    <div class="hint-reveal" id="wordReveal" hidden>
+      <div>Hint for gift:</div>
+      <div>Even boys should get these</div>
+    </div>
+
+    <a class="btn" href="hints.html">Back to Mini Games</a>
+  </main>
+</body>
+</html>

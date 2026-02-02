@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game #4 — Hangman</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <script defer src="game4.js"></script>
+</head>
+<body>
+  <nav class="tabs">
+    <a class="tab" href="index.html">Home</a>
+    <a class="tab active" href="hints.html">Mini Games for Hints</a>
+    <a class="tab" href="quotes.html">Quotes</a>
+    <a class="tab" href="film.html">Caught on Film</a>
+  </nav>
+
+  <main class="boxed">
+    <h1>Game #4</h1>
+    <div class="hint-title">Hangman — Think Little Mermaid</div>
+
+    <canvas id="hangmanCanvas" class="hangman-canvas" width="260" height="220"></canvas>
+    <div class="hangman-word" id="hangmanWord"></div>
+    <div class="alphabet" id="alphabet"></div>
+    <div class="message" id="hangmanMessage"></div>
+
+    <a class="btn" href="hints.html">Back to Mini Games</a>
+  </main>
+</body>
+</html>
