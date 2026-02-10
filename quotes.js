@@ -8,9 +8,9 @@ const QUOTES = [
   "You feel like all the love I've given out came back to me in human form.",
   "You're the sweetest most amazing person that I and everyone else is lucky to have in our lives.",
   "If I were to kiss you and go to hell I would. Then I could brag to the devil I saw heaven without every entering it.",
-  "You're my favorite place to go when my mind searches for peace.",
+  "You're my favorite place to go when my mind wanders.",
   "Do you like me? Just a lot.",
-  "Koi no yokan."
+  "I want to be with you for everything big and small. For all the birthdays and graduations to doing dishes together and late night yap sessions. You're my bestfriend"
 ];
 
 const QUOTE_START_DATE = "2026-02-02"; // One new quote per day; all unlocked by Feb 14.
