@@ -29,15 +29,16 @@ const triviaItems = [
     answer: "physics",
   },
   {
-    question:
-      "8) Compute each definite integral. Each upper limit number currently in the integral and variable your integrate with respect to are ASCII codes.\n" +
-"Convert the codes to characters with google then solve to reveal the message" +
-      "1) integral from 0 to 117 of 1 dx\117" +
-      "2) integral 0 to 114 of 1 dx\114" +
-      "3) integral 0 to 97 of 1 dx\97" +
-      "4) integral 0 to 113 of 1 dx\113" +
-      "5) integral 0 to 116 of 1 dx\116" +
+    question: `8) Compute each definite integral.
+Each upper limit and variable are ASCII codes.
+Convert the codes to characters, then solve to reveal the message:
+1) integral from 0 to 117 of 1 dx
+2) integral from 0 to 114 of 1 dx
+3) integral from 0 to 97 of 1 dx
+4) integral from 0 to 113 of 1 dx
+5) integral from 0 to 116 of 1 dx`,
     answer: "u r a q t",
+    normalize: (value) => value.trim().toLowerCase().replace(/\s+/g, ""),
   },
   {
     question: "9) Of all your physical features, what is your bf's favorite?",
