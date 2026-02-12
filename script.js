@@ -2,15 +2,22 @@ function formatUnlockDate(date) {
   return date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
+function getLocalDateKey(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 function applyGameLocks() {
   const cards = document.querySelectorAll(".game-card[data-unlock]");
   if (!cards.length) return;
 
-  const now = new Date();
+  const todayKey = getLocalDateKey(new Date());
   cards.forEach((card) => {
     const unlock = card.getAttribute("data-unlock");
     const unlockDate = new Date(`${unlock}T00:00:00`);
-    const isUnlocked = now >= unlockDate;
+    const isUnlocked = Boolean(unlock) && todayKey >= unlock;
     const button = card.querySelector(".btn");
     const note = card.querySelector(".unlock-note");
 
