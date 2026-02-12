@@ -30,7 +30,7 @@ const triviaItems = [
   },
   {
     question:
-      "8) Compute each definite integral. Each answer is an ASCII code.\n" +
+      "8) Compute each definite integral. Each number currently in the integral is an ASCII code.\n" +
       "Convert the codes to characters with google then solve to reveal the message.\n" +
       "1) integral 0 to 1 of 117 dx\n" +
       "2) integral 0 to 1 of 32 dx\n" +
