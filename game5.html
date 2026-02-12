@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Game #5 — Joke</title>
+  <title>Game #5 - BF Trivia</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+  <script defer src="game5.js"></script>
 </head>
 <body>
   <nav class="tabs">
@@ -15,9 +16,30 @@
     <a class="tab" href="film.html">Caught on Film</a>
   </nav>
 
-  <main class="boxed">
-    <h1>Game #5</h1>
-    <div class="big-quote">I don’t play games when it comes to you 😘</div>
+  <main class="boxed trivia-boxed">
+    <h1>Game #5 - BF Trivia</h1>
+    <p class="instructions">Answer all 10 questions correctly to unlock the hint.</p>
+
+    <section class="trivia-card" aria-live="polite">
+      <p class="trivia-progress" id="triviaProgress">Question 1 of 10</p>
+      <p class="trivia-question" id="triviaQuestion"></p>
+      <form id="triviaForm" class="trivia-form" autocomplete="off">
+        <input
+          id="triviaAnswer"
+          class="trivia-input"
+          type="text"
+          placeholder="Type your answer"
+          required
+        />
+        <button class="btn" type="submit">Submit</button>
+      </form>
+      <p class="message" id="triviaMessage"></p>
+    </section>
+
+    <div class="hint-reveal" id="triviaHint" hidden>
+      Hint: if he wanted to he would type of sunset walk, ring ya later bestie!
+    </div>
+
     <a class="btn" href="hints.html">Back to Mini Games</a>
   </main>
 </body>

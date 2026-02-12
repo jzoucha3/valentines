@@ -507,3 +507,56 @@ main.boxed .media img {
   .slide-btn { justify-self: center; }
   .word-cell { width: 26px; height: 26px; }
 }
+
+.trivia-boxed {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.trivia-card {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 2px dashed rgba(255, 221, 85, 0.6);
+  background: rgba(255, 233, 240, 0.65);
+  display: grid;
+  gap: 10px;
+}
+
+.trivia-progress {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #b52d3e;
+}
+
+.trivia-question {
+  margin: 0;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.trivia-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.trivia-input {
+  width: min(460px, 100%);
+  border: 2px solid rgba(233, 51, 78, 0.35);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 16px;
+  color: var(--ink);
+  background: #fff;
+}
+
+.trivia-input:focus {
+  outline: 2px solid rgba(233, 51, 78, 0.35);
+}
