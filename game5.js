@@ -32,11 +32,11 @@ const triviaItems = [
     question: `8) Compute each definite integral.
 Each upper limit and variable are ASCII codes.
 Convert the codes to characters, then solve to reveal the message:
-1) integral from 0 to 117 of 1 dx
-2) integral from 0 to 114 of 1 dx
-3) integral from 0 to 97 of 1 dx
-4) integral from 0 to 113 of 1 dx
-5) integral from 0 to 116 of 1 dx`,
+1) integral from 0 to 117 of 1 d117
+2) integral from 0 to 114 of 1 d114
+3) integral from 0 to 97 of 1 d97
+4) integral from 0 to 113 of 1 d113
+5) integral from 0 to 116 of 1 d116`,
     answer: "u r a q t",
     normalize: (value) => value.trim().toLowerCase().replace(/\s+/g, ""),
   },
