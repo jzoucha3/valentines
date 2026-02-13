@@ -20,28 +20,9 @@ function updateCountdown() {
   const question = document.getElementById("question");
   if (!daysValue || !hoursValue || !minutesValue || !secondsValue || !heartContent || !question) return;
 
-  const now = new Date();
-  if (isValentinesDay(now)) {
-    heartContent.hidden = true;
-    question.hidden = false;
-    return;
-  }
-
-  heartContent.hidden = false;
-  question.hidden = true;
-
-  const valentines = getNextValentines();
-  const diff = valentines - now;
-  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
-  const days = Math.floor(totalSeconds / (24 * 3600));
-  const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-
-  daysValue.textContent = String(days).padStart(2, "0");
-  hoursValue.textContent = String(hours).padStart(2, "0");
-  minutesValue.textContent = String(minutes).padStart(2, "0");
-  secondsValue.textContent = String(seconds).padStart(2, "0");
+  heartContent.hidden = true;
+  question.hidden = false;
+  return;
 }
 
 function setupYesButtons() {
